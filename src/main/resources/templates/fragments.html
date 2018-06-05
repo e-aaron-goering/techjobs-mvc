@@ -27,5 +27,13 @@
         </div>
     </div>
 
+    <div th:fragment="search-list" th:if="${jobs} and ${jobs.size()}">
+        <table>
+            <tr th:each="job, idx : ${jobs}" th:class="${idx.odd} ? 'odd'">
+                <td style="width:100px" th:each="key : ${job.keySet()}" th:text="${job.get(key)}"></td>
+            </tr>
+        </table>
+    </div>
+
 </body>
 </html>

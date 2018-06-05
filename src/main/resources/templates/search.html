@@ -34,11 +34,12 @@
         <input type="submit" value="Search" />
     </form>
 
-    <hr />
-
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
+    <div th:replace="fragments :: search-list"></div>
+    <div th:unless="${jobs} and ${jobs.size()}">
+        <h3 text="No Current Results">No Current Results</h3>
+    </div>
 
 </div>
-
 </body>
 </html>
