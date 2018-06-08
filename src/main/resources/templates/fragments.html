@@ -28,11 +28,15 @@
     </div>
 
     <div th:fragment="search-list" th:if="${jobs} and ${jobs.size()}">
-        <table>
-            <tr th:each="job, idx : ${jobs}" th:class="${idx.odd} ? 'odd'">
-                <td style="width:100px" th:each="key : ${job.keySet()}" th:text="${job.get(key)}"></td>
-            </tr>
-        </table>
+            <table th:each="job, idx : ${jobs}" th:class="${idx.odd} ? 'odd'">
+                    <tr th:each="row : ${job}">
+                        <p>
+                        <td style="width:200px" th:text="${row.key} + ':'"></td>
+                        <td style="width:200px" th:text="${row.value}"></td>
+                        </p>
+                    </tr>
+                <p>********************************************************************************</p>
+            </table>
     </div>
 
 </body>
